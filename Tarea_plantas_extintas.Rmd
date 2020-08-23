@@ -1,0 +1,55 @@
+---
+title: "Tarea_plantas_extintas"
+author: "Javier Zapata"
+date: "23-08-2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(kableExtra)
+library(knitr)
+```
+
+
+## Introduccion
+
+### De donde vienen los datos
+
+Estos datos sobre plantas extintas son datos de la **IUCN**, y se obtuvieron 
+del [siguiente repositorio](https://github.com/rfordatascience/tidytuesday) de github  
+
+```{r, echo = F, message= F, warning= F}
+plants <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-08-18/plants.csv")
+```
+
+## Numero de especies por continente
+
+El numero de especies de plantas para cada continente se muestra en la siguiente tabla:
+```{r, echo = F, message= F, warning= F}
+Continentes = c("South America", "North America", "Africa", "Asia", "Oceania", "Europe")
+Especies_por_continente = c(83,89,218,59,38,13)
+
+Tabbla_one = data.frame(cbind(Continentes, Especies_por_continente))
+
+kable(Tabbla_one, digits = 2, caption = "La base de datos entera") %>% 
+    kable_styling(bootstrap_options = c("striped", 
+        "hover", "condensed"), full_width = F)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
