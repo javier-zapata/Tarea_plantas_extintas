@@ -24,24 +24,36 @@ del [siguiente repositorio](https://github.com/rfordatascience/tidytuesday) de g
 plants <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-08-18/plants.csv")
 ```
 
-## Numero de especies por continente
 
-El numero de especies de plantas para cada continente se muestra en la siguiente tabla:
+## Numero de especies de plantas extintas
+
+ El numero de especies de plantas extintas en los 6 continentes, se muestra en la siguiente tabla:
+```{r, echo = F, message= F, warning= F}
+categoria_de_la_lista_roja = c("Extinct in the Wild", "Extinct")
+Numero_de_Especies = c(65, 435)
+
+Tabbla_tres = data.frame(cbind(categoria_de_la_lista_roja, Numero_de_Especies))
+
+kable(Tabbla_tres, digits = 2, caption = "Numero de especies extintas") %>% 
+    kable_styling(bootstrap_options = c("striped", 
+        "hover", "condensed", "responsive"), full_width = F)
+
+
+```
+ 
+## Plantas extintas por continente
+
+El numero de especies de plantas extintas para cada continente se muestra en la siguiente tabla:
 ```{r, echo = F, message= F, warning= F}
 Continentes = c("South America", "North America", "Africa", "Asia", "Oceania", "Europe")
 Especies_por_continente = c(83,89,218,59,38,13)
 
 Tabbla_one = data.frame(cbind(Continentes, Especies_por_continente))
 
-kable(Tabbla_one, digits = 2, caption = "La base de datos entera") %>% 
+kable(Tabbla_one, digits = 2, caption = "Numero de especies extintas") %>% 
     kable_styling(bootstrap_options = c("striped", 
-        "hover", "condensed"), full_width = F)
-
+        "hover", "condensed", "responsive"), full_width = F)
 ```
-
-
-
-
 
 
 
